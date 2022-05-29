@@ -606,6 +606,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1243473654375969839, guid: ed82c7a2aac837c448b9e760079dbafe, type: 3}
+      propertyPath: _volumeChangeRate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3922934269130611704, guid: ed82c7a2aac837c448b9e760079dbafe, type: 3}
       propertyPath: _alarm
       value: 

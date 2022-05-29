@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider2D))]
 
-
 public class Building : MonoBehaviour
 {
     [SerializeField] private UnityEvent _intruded;
@@ -14,17 +13,12 @@ public class Building : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent<Robber>(out Robber robber))
-        {
             _intruded.Invoke();
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.TryGetComponent<Robber>(out Robber robber))
-        {
             _gone.Invoke();
-        }
     }
-
 }
