@@ -349,7 +349,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: -1293478277, guid: e08e6a2f34edd4a7db4285eeddef84a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -402,23 +402,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 3.1580777}
   m_EdgeRadius: 0
---- !u!1 &1143434934 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3614813612720427439, guid: c0b0c784eabf97349a6fde0e24d077b0, type: 3}
-  m_PrefabInstance: {fileID: 4453829353980086927}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1143434941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143434934}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22e81cdfe2c12f3458594ae0a3a08d76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1677836380
 GameObject:
   m_ObjectHideFlags: 0
@@ -430,7 +413,7 @@ GameObject:
   - component: {fileID: 1677836382}
   - component: {fileID: 1677836381}
   m_Layer: 0
-  m_Name: skyline-b
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,14 +494,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1143434940, guid: c0b0c784eabf97349a6fde0e24d077b0, type: 3}
-      propertyPath: _runSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1143434940, guid: c0b0c784eabf97349a6fde0e24d077b0, type: 3}
-      propertyPath: _walkSpeed
-      value: 1.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3614813612720427439, guid: c0b0c784eabf97349a6fde0e24d077b0, type: 3}
       propertyPath: m_Name
       value: robber
@@ -576,10 +551,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1537943332, guid: ed82c7a2aac837c448b9e760079dbafe, type: 3}
-      propertyPath: BypassEffects
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 43755595291030016, guid: ed82c7a2aac837c448b9e760079dbafe, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -623,10 +594,6 @@ PrefabInstance:
     - target: {fileID: 43755595291030016, guid: ed82c7a2aac837c448b9e760079dbafe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7410725775046095010, guid: ed82c7a2aac837c448b9e760079dbafe, type: 3}
-      propertyPath: _minVolume
-      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7881649335041807090, guid: ed82c7a2aac837c448b9e760079dbafe, type: 3}
       propertyPath: m_Name
