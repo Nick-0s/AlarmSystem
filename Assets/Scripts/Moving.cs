@@ -12,7 +12,7 @@ public class Moving : MonoBehaviour
     private Animator _animator;
     private Alarm _alarm;
 
-    void Awake()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
         _alarm = FindObjectOfType<Alarm>();
