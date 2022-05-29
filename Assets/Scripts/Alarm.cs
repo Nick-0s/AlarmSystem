@@ -15,6 +15,17 @@ public class Alarm : MonoBehaviour
 
     public bool IsTriggered { get; private set; }    
 
+    public void TurnOn()
+    {
+        _alarm = StartCoroutine(SoundAlarm());
+    }
+
+    public void TurnOff()
+    {
+        StopCoroutine(_alarm);
+        _alarmSound.Stop();
+    }
+
     private void OnValidate()
     {
         _minVolume = Mathf.Clamp(_minVolume, 0, 1);
@@ -26,27 +37,11 @@ public class Alarm : MonoBehaviour
         IsTriggered = false;
         _alarmSound.volume = _minVolume;
         _isVolumeIncreasing = true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.TryGetComponent<Robber>(out Robber robber))
-        {
-            IsTriggered = true;
-            _alarm = StartCoroutine(SoundAlarm());
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.TryGetComponent<Robber>(out Robber robber))
-        {
-            IsTriggered = false;
-        }
-    }
+    }    
 
     private IEnumerator SoundAlarm()
     {
+        IsTriggered = true;
         _alarmSound.Play();
 
         while (IsTriggered)
@@ -55,8 +50,6 @@ public class Alarm : MonoBehaviour
 
             yield return null;
         }
-
-        _alarmSound.Stop();
     }
 
     private void ChangeVolume()
