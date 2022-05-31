@@ -8,11 +8,34 @@ public class Alarm : MonoBehaviour
     [SerializeField] private float _volumeChangeRate;
     [SerializeField] private AudioSource _alarmSound;
 
+    private Building _building;
     private Coroutine _changingVolume;
 
     public bool IsTriggered { get; private set; }    
 
-    public void TurnOn()
+    private void OnValidate()
+    {
+        _minVolume = Mathf.Clamp(_minVolume, 0, 1);
+        _volumeChangeRate = Mathf.Clamp(_volumeChangeRate, 0.01f, 1);
+    }
+
+    private void Awake()
+    {
+        _building = GetComponent<Building>();
+        _building._statusChanged += ChooseAction;
+        IsTriggered = false;
+        _alarmSound.volume = _minVolume;
+    } 
+
+    private void ChooseAction()
+    {
+        if (IsTriggered)
+            TurnOff();
+        else
+            TurnOn();
+    }
+
+    private void TurnOn()
     {
         float maxVolume = 1;        
         IsTriggered = true;
@@ -23,26 +46,14 @@ public class Alarm : MonoBehaviour
         _changingVolume = StartCoroutine(ChangeVolumeTo(maxVolume));
     }
 
-    public void TurnOff()
+    private void TurnOff()
     {
         IsTriggered = false;
 
         RemoveActiveCoroutine();
 
         _changingVolume = StartCoroutine(ChangeVolumeTo(_minVolume));
-    }
-
-    private void OnValidate()
-    {
-        _minVolume = Mathf.Clamp(_minVolume, 0, 1);
-        _volumeChangeRate = Mathf.Clamp(_volumeChangeRate, 0.01f, 1);
-    }
-
-    private void Awake()
-    {
-        IsTriggered = false;
-        _alarmSound.volume = _minVolume;
-    }    
+    }   
 
     private IEnumerator ChangeVolumeTo(float targetVolume)
     {

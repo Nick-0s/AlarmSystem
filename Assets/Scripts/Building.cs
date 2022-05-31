@@ -7,18 +7,17 @@ using UnityEngine.Events;
 
 public class Building : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _intruded;
-    [SerializeField] private UnityEvent _gone;
+    public UnityAction _statusChanged;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent<Robber>(out Robber robber))
-            _intruded.Invoke();
+            _statusChanged.Invoke();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.TryGetComponent<Robber>(out Robber robber))
-            _gone.Invoke();
+            _statusChanged.Invoke();
     }
 }
