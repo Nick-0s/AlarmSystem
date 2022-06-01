@@ -505,6 +505,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1143434948, guid: c0b0c784eabf97349a6fde0e24d077b0, type: 3}
+      propertyPath: _alarm
+      value: 
+      objectReference: {fileID: 1370888278}
     - target: {fileID: 3614813612720427439, guid: c0b0c784eabf97349a6fde0e24d077b0, type: 3}
       propertyPath: m_Name
       value: robber
