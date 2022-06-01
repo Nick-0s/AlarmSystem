@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Building))]
+
 public class Alarm : MonoBehaviour
 {
     [SerializeField] private float _minVolume;

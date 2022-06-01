@@ -7,17 +7,17 @@ using UnityEngine.Events;
 
 public class Building : MonoBehaviour
 {
-    public UnityAction _statusChanged;
+    public event UnityAction _statusChanged;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent<Robber>(out Robber robber))
-            _statusChanged.Invoke();
+            _statusChanged?.Invoke();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.TryGetComponent<Robber>(out Robber robber))
-            _statusChanged.Invoke();
+            _statusChanged?.Invoke();
     }
 }

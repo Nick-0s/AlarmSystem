@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 
 public class Moving : MonoBehaviour
 {
+    [SerializeField] private Alarm _alarm;
     [SerializeField] private float _walkSpeed;
     [SerializeField] private float _runSpeed;
 
     private Animator _animator;
-    private Alarm _alarm;
+    private SpriteRenderer _spriteRenderer;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _alarm = FindObjectOfType<Alarm>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -24,13 +26,13 @@ public class Moving : MonoBehaviour
 
         if(Input.GetKey(KeyCode.A))
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            _spriteRenderer.flipX = true;
             currentSpeed = _alarm.IsTriggered? _runSpeed : _walkSpeed;
             transform.Translate(-currentSpeed * Time.deltaTime, 0, 0);
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            GetComponent<SpriteRenderer>().flipX = false;
+            _spriteRenderer.flipX = false;
             currentSpeed = _alarm.IsTriggered? _runSpeed : _walkSpeed;
             transform.Translate(currentSpeed * Time.deltaTime, 0, 0);
         }
